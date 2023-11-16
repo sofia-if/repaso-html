@@ -5,25 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favicon-16x16.png" type="image/x-png">
     <link rel="stylesheet" href="style.css">
-    <script  src="javascript.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js "></script>
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css " rel="stylesheet">
+    <script defer src="javascript.js"></script>
     <title>Seguro No Pagamos</title>
 </head>
 <body>
     <div class="container">
         <h1>Solicitud de contacto</h1>
-        <form id="contacForm">
+        <form action="#" id="contactForm">
 
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre">
+                <input type="text" id="nombre" name="nombre" required minlength="2"
+                maxlength="20"
+                title="el nombre debe ter entre 2 y 20 letruscas">
             </div>
             <div class="form-group">
                 <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido">
+                <input type="text" id="apellido" name="apellido" required minlength="2"
+                maxlength="20">
+
             </div>
             <div class="form-group">
                 <label for="dni">DNI</label>
-                <input type="text" id="dni" name="dni">
+                <input type="text" id="dni" name="dni" required 
+                pattern="[\d]{1,2}\.?[\d]{3,3}\.?[\d]{3,3}$"
+                oninvalid='this.setCustomValidity("Debe ser un DNI valido, con o sin puntos")''
+                oninput='setCustomValidity("")'
+                placeholder="tu DNI con o sin puntos">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -31,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="telefono">Telefono</label>
-                <input type="text" id="telefono" name="etelefono">
+                <input type="text" id="telefono" name="telefono">
             </div>
             <div class="form-group">
                 <label for="tipoSeguro">Tipo de seguro</label>
@@ -39,7 +49,7 @@
                 <option value="" disabled selected>Seleccione una opción</option>
                 <option value="basico">Basico</option>
                 <option value="intermedio">Intermedio</option>
-                <option value="prmium">Premium</option>
+                <option value="premium">Premium</option>
             </select>
             </div>
             <div class="form-group" id="valorSeguroContainer">
